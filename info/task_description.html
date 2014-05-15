@@ -19,6 +19,14 @@
 </p>
 
 <p>
+    Let's look at examples.<br>
+    <em>scout2</em> and <em>scout3</em> have the common friend <em>scout1</em> so they are related.
+    <em>super</em> and <em>scout2</em>  are related through <em>sscout</em>, <em>scout4</em> and <em>scout1</em>.
+    But <em>dr101</em> and <em>sscout</em> are not related.
+
+</p>
+
+<p>
     <strong>Input: </strong> Three arguments: Information about friends as a tuple of lists; first name as a string;
     second name as a string.
 </p>
@@ -46,10 +54,14 @@ check_connection(
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-
+    This concept will help you find not too obvious connections with the building of bond networks.
+    And how to work social networks.
 </p>
 
 <p>
     <strong>Precondition:</strong>
-    <i>Constraints for Input</i>
+    len(network) &le; 45<br>
+    if <em>"name1-name2"</em> in <strong>network</strong>, then <em>"name2-name1"</em> not in <strong>network</strong><br>
+    3 &le; len(drone_name) &le; 6<br>
+    <em>first_name</em> and <em>second_name</em> in <strong>network</strong>.
 </p>
