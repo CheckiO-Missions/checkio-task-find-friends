@@ -8,7 +8,7 @@ from checkio.referees import checkers
 from tests import TESTS
 
 cover = """def cover(f, data):
-    return f(tuple(data))
+    return f(tuple(data[0]), data[1], data[2])
 """
 
 api.add_listener(

@@ -35,16 +35,89 @@ TESTS = {
         },
 
     ],
-    "Extra": [
+    "Edge": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": (['night-nikola'],
+                      "nikola", "night"),
+            "answer": True,
+            "explanation": ['nikola', 'night']
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
-        }
+            "input": (['nic-batman', 'cat-super'],
+                      "batman", "cat"),
+            "answer": False,
+            "explanation": ['batman', 'cat', 'super', 'nic']
+        },
+        {
+            "input": (['scout1-scout3', 'plane1-robin', 'scout3-sscout', 'scout1-base', 'pingin-scout1', 'sscout-base',
+                       'scout3-plane1', 'scout3-robin', 'plane1-nikola', 'plane1-pingin', 'base-scout3',
+                       'plane1-sobhia',
+                       'base-pingin', 'scout3-sobhia', 'robin-stevan', 'robin-base', 'nikola-robin', 'sobhia-sscout',
+                       'stevan-sscout', 'robin-sobhia', 'robin-sscout', 'pingin-sscout', 'scout3-nikola', 'nikola-base',
+                       'plane1-scout1', 'plane1-base', 'sscout-plane1', 'sobhia-scout1', 'sscout-scout1',
+                       'robin-pingin',
+                       'pingin-stevan', 'pingin-sobhia', 'scout3-pingin', 'nikola-sscout', 'nikola-pingin',
+                       'stevan-base',
+                       'stevan-scout1', 'scout1-nikola', 'nikola-sobhia', 'stevan-sobhia', 'stevan-scout3',
+                       'scout1-robin',
+                       'nikola-stevan', 'sobhia-base', 'stevan-plane1'],
+                      "pingin", "sobhia"),
+            "answer": True,
+            "explanation": ['pingin', 'sobhia', 'sscout', 'scout3', 'stevan', 'scout1', 'plane1', 'nikola', 'base',
+                            'robin']
+        },
+        {
+            "input": (
+                ['sscout-batman', 'plane1-scout3', 'stevan-batman', 'super-sscout', 'scout2-batman', 'scout2-sscout',
+                 'doc-mega', 'night-batman', 'scout3-doc'],
+                "scout2", "plane1"),
+            "answer": False,
+            "explanation": ['scout2', 'plane1', 'stevan', 'night', 'mega', 'sscout', 'super', 'scout3', 'doc', 'batman']
+        },
+        {
+            "input": (
+                ['scout2-plane1', 'plane1-stevan', 'stevan-night', 'night-mega', 'mega-sscout', 'sscout-super',
+                 'super-scout3',
+                 'scout3-doc', 'doc-batman'],
+                "scout2", "batman"),
+            "answer": True,
+            "explanation": ['scout2', 'plane1', 'stevan', 'night', 'mega', 'sscout', 'super', 'scout3', 'doc', 'batman']
+        },
+        {
+            "input": (
+                ['scout2-plane1', 'plane1-stevan', 'stevan-night', 'night-mega', 'sscout-super',
+                 'super-scout3', 'scout3-doc', 'doc-batman'],
+                "night", "batman"),
+            "answer": False,
+            "explanation": ['scout2', 'plane1', 'stevan', 'night', 'mega', 'sscout', 'super', 'scout3', 'doc', 'batman']
+        },
+        {
+            "input": (['scout1-scout3', 'plane1-robin', 'scout3-sscout', 'pingin-scout1',
+                       'scout3-plane1', 'scout3-robin', 'plane1-nikola', 'plane1-pingin',
+                       'plane1-sobhia', 'scout3-sobhia', 'nikola-robin', 'sobhia-sscout',
+                       'robin-sobhia', 'robin-sscout', 'pingin-sscout', 'scout3-nikola',
+                       'plane1-scout1', 'sscout-plane1', 'sobhia-scout1', 'sscout-scout1',
+                       'robin-pingin', 'pingin-sobhia', 'scout3-pingin', 'nikola-sscout', 'nikola-pingin',
+                       'stevan-base', 'scout1-nikola', 'nikola-sobhia',
+                       'scout1-robin', ],
+                      "base", "nikola"),
+            "answer": False,
+            "explanation": ['pingin', 'sobhia', 'sscout', 'scout3', 'stevan', 'scout1', 'plane1', 'nikola', 'base',
+                            'robin']
+        },
+
+
     ]
+    # "Extra": [
+    #     {
+    #         "input": [6, 3],
+    #         "answer": 9,
+    #         "explanation": "6+3=?"
+    #     },
+    #     {
+    #         "input": [6, 7],
+    #         "answer": 13,
+    #         "explanation": "6+7=?"
+    #     }
+    # ]
 }
