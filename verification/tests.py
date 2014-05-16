@@ -7,19 +7,33 @@ Each test is dict with
     "explanation" -- not necessary key, it's using for additional info in animation.
 """
 
-
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": (
+                ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+                 "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+                "scout2", "scout3"),
+            "answer": True,
+            "explanation": ["dr101", "mr99", "out00", "scout1", "scout2", "scout3", "scout4", "sscout", "super"]
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
-        }
+            "input": (
+                ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+                 "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+                "super", "scout2"),
+            "answer": True,
+            "explanation": ["dr101", "mr99", "out00", "scout1", "scout2", "scout3", "scout4", "sscout", "super"]
+        },
+        {
+            "input": (
+                ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+                 "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+                "dr101", "sscout"),
+            "answer": False,
+            "explanation": ["dr101", "mr99", "out00", "scout1", "scout2", "scout3", "scout4", "sscout", "super"]
+        },
+
     ],
     "Extra": [
         {
