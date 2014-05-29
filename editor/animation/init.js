@@ -94,13 +94,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             }
             //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            if (explanation) {
+                var canvas = new SocialNetwork();
+                canvas.draw($content.find(".explanation")[0], explanation, checkioInput[0], checkioInput[1], checkioInput[2]);
+            }
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -122,6 +119,9 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 //        });
 
         function SocialNetwork(options) {
+
+            var format = Raphael.format;
+
             //Colors
             var colorOrange4 = "#F0801A";
             var colorOrange3 = "#FA8F00";
@@ -142,7 +142,60 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 
             options = options || {};
 
-            var R = options.radius || 180;
+            var R = options.radius || 160;
+            var objR = 15;
+            var w = 25;
+            var h = 10;
+
+            var sizeX = 2 * (R + w);
+            var sizeY = 2 * (R + h);
+
+            var centerX = R + w;
+            var centerY = R + h;
+
+
+            var paper;
+            var networkObjects = {};
+
+            var attrCircle = {"stroke": colorBlue4, "stroke-width": 2, "fill": colorBlue1};
+            var attrRect = {"stroke": colorBlue4, "stroke-width": 2, "fill": colorBlue1};
+            var attrNumber = {"font-family": "Robotic, Verdana, Geneva, sans-serif", "font-size": objR * 1.5};
+            var attrName = {"font-family": "Robotic, Verdana, Geneva, sans-serif", "font-size": h};
+            var attrLine = {"stroke": colorOrange4, "stroke-width": 3};
+
+            this.draw = function(dom, names, network, first, second) {
+                paper = Raphael(dom, sizeX, sizeY);
+                var angle = Math.PI * 2 / names.length;
+                for (var i = 0; i < names.length; i++) {
+                    var obj = paper.set();
+                    var x = centerX - Math.cos(i * angle) * R;
+                    var y = centerY - Math.sin(i * angle) * R;
+//                    obj.push(paper.circle(x, y, objR).attr(attrCircle));
+                    obj.push(paper.rect(x - w, y - h, 2 * w, 2 * h, h).attr(attrRect));
+
+
+                    if (names[i] === first || names[i] === second) {
+                        obj[0].attr("fill", colorOrange1);
+                    }
+//                    obj.push(paper.text(x, y, i).attr(attrNumber));
+                    obj.push(paper.text(x, y, names[i]).attr(attrName));
+                    obj.x = x;
+                    obj.y = y;
+                    networkObjects[names[i]] = obj;
+                }
+                for (i = 0; i < network.length; i++) {
+                    var connection = network[i].split("-");
+                    var fr = networkObjects[connection[0]];
+                    var to = networkObjects[connection[1]];
+                    paper.path(
+                        format("M{0},{1}L{2},{3}",
+                            fr.x,
+                            fr.y,
+                            to.x,
+                            to.y)).attr(attrLine).toBack();
+
+                }
+            }
 
         }
 

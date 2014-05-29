@@ -40,7 +40,7 @@ TESTS = {
             "input": (['night-nikola'],
                       "nikola", "night"),
             "answer": True,
-            "explanation": ['nikola', 'night']
+            "explanation": None
         },
         {
             "input": (['nic-batman', 'cat-super'],
@@ -107,17 +107,73 @@ TESTS = {
         },
 
 
+    ],
+    "Extra": [
+        {"input": (['mr99-cat', 'mega-mr99'],
+                   "cat", "mr99"),
+         "answer": True,
+         "explanation": ['cat', 'mr99', 'mega']
+        },
+
+        {"input": (['cat-super', 'cat-nikola', 'nikola-super'],
+                   "nikola", "super"),
+         "answer": True,
+         "explanation": ['nikola', 'super', 'cat']
+        },
+
+        {"input": (['nikola-robin', 'batman-nwing', 'mr99-batman', 'mr99-robin', 'dr101-out00', 'out00-nwing'],
+                   "dr101", "mr99"),
+         "answer": True,
+         "explanation": ['dr101', 'mr99', 'out00', 'nikola', 'robin', 'batman', 'nwing']
+        },
+
+        {"input": (
+            ['cat-robin', 'cat-base', 'out00-scout4', 'robin-scout4', 'cat-batman', 'batman-plane2', 'plane2-scout3',
+             'plane2-base', 'robin-batman', 'mr99-scout3'],
+            "base", "robin"),
+         "answer": True,
+         "explanation": ['base', 'robin', 'mr99', 'scout3', 'plane2', 'batman', 'cat', 'scout4', 'out00']
+        },
+
+        {"input": (['out00-scout3', 'mega-scout3', 'mega-robin'],
+                   "robin", "out00"),
+         "answer": True,
+         "explanation": ['scout3', 'out00', 'mega', 'robin']
+        },
+
+        {"input": (
+            ['base-night', 'scout1-night', 'pingin-sscout', 'sscout-scout1', 'dr101-pingin', 'sscout-base',
+             'dr101-sscout', 'pingin-night', 'pingin-scout1', 'scout1-dr101', 'dr101-night'],
+            "pingin", "base"),
+         "answer": True,
+         "explanation": ['pingin', 'base', 'night', 'dr101', 'sscout', 'scout1']
+        },
+
+        {"input": (['base-nikola', 'scout1-nikola', 'nikola-nwing'],
+                   "nwing", "base"),
+         "answer": True,
+         "explanation": ['nwing', 'base', 'scout1', 'nikola']
+        },
+        {"input": (['base-stevan', 'out00-stevan', 'dr101-nwing'],
+                   "nwing", "out00"),
+         "answer": False,
+         "explanation": ['nwing', 'out00', 'dr101', 'base', 'stevan']
+        },
+
+        {"input": (['sobhia-mega', 'nwing-nikola'],
+                   "nwing", "mega"),
+         "answer": False,
+         "explanation": ['nwing', 'mega', 'nikola', 'sobhia']
+        },
+        {"input": (['pingin-out00', 'night-plane2', 'pingin-scout3'],
+                   "plane2", "out00"),
+         "answer": False,
+         "explanation": ['plane2', 'out00', 'night', 'scout3', 'pingin']
+        },
+        {"input": (['out00-nwing', 'scout1-night', 'out00-sscout', 'scout4-night', 'nwing-sscout', 'plane1-scout1'],
+                   "nwing", "night"),
+         "answer": False,
+         "explanation": ['nwing', 'night', 'plane1', 'scout1', 'sscout', 'out00', 'scout4']
+        },
     ]
-    # "Extra": [
-    #     {
-    #         "input": [6, 3],
-    #         "answer": 9,
-    #         "explanation": "6+3=?"
-    #     },
-    #     {
-    #         "input": [6, 7],
-    #         "answer": 13,
-    #         "explanation": "6+7=?"
-    #     }
-    # ]
 }
