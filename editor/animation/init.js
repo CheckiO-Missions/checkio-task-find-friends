@@ -39,8 +39,15 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 return false;
             }
 
-            var checkioInput = data.in;
-            var checkioInputStr = ' checkio(' + JSON.stringify(checkioInput) + ')';
+            var default_in = [
+                ["dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+                    "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"],
+                "scout2",
+                "scout3"
+            ];
+            var checkioInput = data.in || default_in;
+            var checkioInputStr = ' check_connection(' + JSON.stringify(checkioInput[0]).replace(/\[/g, "(").replace(/\]/g, ")") +
+                "," + JSON.stringify(checkioInput[1]) + "," + JSON.stringify(checkioInput[2]) + ')';
 
             var failError = function (dError) {
                 $content.find('.call').html('Fail: ' + checkioInputStr);
