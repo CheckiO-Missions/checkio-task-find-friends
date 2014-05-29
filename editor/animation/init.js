@@ -147,11 +147,13 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var w = 25;
             var h = 10;
 
-            var sizeX = 2 * (R + w);
-            var sizeY = 2 * (R + h);
+            var x0 = 10;
 
-            var centerX = R + w;
-            var centerY = R + h;
+            var sizeX = 2 * x0 + 2 * (R + w);
+            var sizeY = 2 * x0 + 2 * (R + h);
+
+            var centerX = x0 + R + w;
+            var centerY = x0 + R + h;
 
 
             var paper;
