@@ -46,7 +46,11 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 "scout3"
             ];
             var checkioInput = data.in || default_in;
-            var checkioInputStr = ' check_connection(' + JSON.stringify(checkioInput[0]).replace(/\[/g, "(").replace(/\]/g, ")") +
+            var chFirst = JSON.stringify(checkioInput[0]).replace(/\[/g, "(").replace(/\]/g, ")");
+            if (checkioInput[0].length === 1) {
+                chFirst = chFirst.replace(")", ",)");
+            }
+            var checkioInputStr = ' check_connection(' + chFirst +
                 "," + JSON.stringify(checkioInput[1]) + "," + JSON.stringify(checkioInput[2]) + ')';
 
             var failError = function (dError) {
