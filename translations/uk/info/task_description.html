@@ -1,0 +1,68 @@
+<p>
+    Підручні дрони Софії - це не якісь тупі, бездушні залізяки. Більше того - вони вміють
+    дружити. Насправді, вони вже навіть роблять свою соціальну мережу, тільки для дронів! 
+    Софія витягла звідти дані про всі зв'язки між дронами і тепер хоче вивчити ці 
+    взаємозв'язки докладніше.
+</p>
+
+<p>
+    Заданий масив прямих зв'язків між дронами - хто з ким дружить. Кожен такий зв'язок 
+    представлений, як рядок з двома іменами, які розділені дефісом. Наприклад: "dr101-mr99" 
+    означає, що dr101 і mr99 дружать між собою. Крім того задано два імені. Спробуйте 
+    визначити, чи пов'язані вони через інших дронів, незалежно від глибини цих зв'язків. 
+    Наприклад: якщо у двох дронів є спільний друг або друзі, у яких є спільний друг і так далі.
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="network" src="{{MEDIA}}network.png" alt="network" width="600px"/>
+    <img class="for_editor_only" title="network" src="{{MEDIA}}network.png" alt="network" width="380px"/>
+</p>
+
+<p>
+    Давайте розглянемо приклади:<br>
+    <em>scout2</em> і <em>scout3</em> обидва дружать з <em>scout1</em>, так що вони пов'язані між собою.
+    <em>super</em> і <em>scout2</em> пов'язані між собою через <em>sscout</em>, <em>scout4</em> і <em>scout1</em>.
+    Але ось <em>dr101</em> і<em>sscout</em> ніяк не пов'язані між собою.
+
+</p>
+
+<p>
+    <strong>Вхідні дані: </strong> Три аргументи: інформація про друзів, як кортеж (tuple) рядків (str); 
+    перше ім'я, як рядок (str); друге ім'я, як рядок (str).
+</p>
+
+<p>
+    <strong>Вихідні дані: </strong> Відповідь на запитання, що чи пов'язані вказані дрони між 
+    собою у вигляді логічного значення (bool).
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Приклади:</strong>
+    </p>
+    <pre class="brush: python">
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "scout2", "scout3") == True
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "dr101", "sscout") == False
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Як це використовується: </strong>
+    Дана ідея може допомогти вам в знаходженні складних взаємозв'язків між подіями, які на 
+    перший погляд не мають ніяких зв'язків між собою. Ну і звичайно взнаєте дещо про соціальні мережі.
+</p>
+
+<p>
+    <strong>Передумови:</strong>
+    len(network) &le; 45<br>
+    Якщо <em>"name1-name2"</em> належить <em>network</em>, тоді <em>"name2-name1"</em> не належить <em>network</em><br>
+    3 &le; len(drone_name) &le; 6<br>
+    <em>first_name</em> і <em>second_name</em> завжди належить  <em>network</em>.
+</p>
