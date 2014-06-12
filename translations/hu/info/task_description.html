@@ -1,0 +1,74 @@
+<p>
+    Zsófia drón beosztottjai – nem valami oktalan, érzéketlen vasdarabok. Sőt, - ők 
+    barátkozni is tudnak. Valóban, ők még saját közösségi hálót is létrehoztak, de csak 
+    drónok számára! Zsófia kinyerte e hálóból az összes drónok közötti kapcsolatokat és 
+    most részletesebben szeretné tanulmányozni azokat.
+</p>
+
+<p>
+    Adott egy tömb, amely a drónok közötti közvetlen kapcsolatokat tartalmazza – azt, 
+    hogy ki kivel barátkozik. Minden egyes kapcsolat karakterláncként van ábrázolva 
+    két kötőjellel összekapcsolt névazonosító formájában. Például: a "dr101-mr99" azt 
+    jelenti, hogy a <em>dr101</em> és az <em>mr99</em> barátkoznak egymással. Azon 
+    kívül, meg van adva két névazonosító. Próbálja meg e feladatban meghatározni, 
+    hogy a drónok kapcsolatban vannak-e egymással más drónokon keresztül, függetlenül 
+    a köztük lévő kapcsolatok melységére. Például, ha két drónnak közös barátja van, 
+    vagy olyan barátaik vannak, akiknek vannak közös barátai, és így tovább.
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="network" src="{{MEDIA}}network.png" alt="network" width="600px"/>
+    <img class="for_editor_only" title="network" src="{{MEDIA}}network.png" alt="network" width="380px"/>
+</p>
+
+<p>
+    Tekintsünk meg néhány példát:<br>
+    Mind a <em>scout2</em>, mind a <em>scout3</em> barátkozik a <em>scout1</em>-el,
+    tehát ők kapcsolatban vannak. A <em>super</em> és a <em>scout2</em> kapcsolatban 
+    van egymással a <em>sscout</em>-on, a <em>scout4</em>-en és a <em>scout1</em>-en 
+    keresztül. De már a <em>dr101</em> és a <em>sscout</em> sehogy sincs kapcsolatban egymással.
+
+</p>
+
+<p>
+    <strong>Bemeneti adatok: </strong> három argumentum: a barátokról szóló információ 
+    karakterláncokból (str) álló n-es értéksorokból (tuple); az első névazonosító 
+    karakterláncként (str); a második névazonosító karakterláncként (str).
+</p>
+
+<p>
+    <strong>Kimeneti adatok: </strong> kapcsolatban vannak-e a drónok logikai (bool) értékként.
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Példák:</strong>
+    </p>
+    <pre class="brush: python">
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "scout2", "scout3") == True
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "dr101", "sscout") == False
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Alkalmazása: </strong>
+    Az adott elv segítséget nyújthat az elsőre összefüggéstelennek látszó események 
+    közötti összefüggések megállapításában. Persze, egy kis betekintést is nyerünk 
+    a közösségi hálók belső világába.
+</p>
+
+<p>
+    <strong>Előfeltételek:</strong>
+    <br>len(network) &le; 45<br>
+    Ha a <em>"name1-name2"</em> a <em>network</em>-ben található, akkor 
+    a <em>"name2-name1"</em> nem található a <em>network</em>-ben<br>
+    3 &le; len(drone_name) &le; 6<br>
+    A <em>first_name</em> és a <em>second_name</em> mindig a <em>network</em>-ben található.
+
+</p>
