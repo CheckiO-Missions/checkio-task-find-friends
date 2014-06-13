@@ -1,0 +1,61 @@
+﻿<p>
+    索菲亚的寄生虫并非是没有灵魂和愚蠢的;他们可以拥有朋友和交朋友。事实上，他们已经正在为自己的只是为了寄生虫的社交网络工作！索菲亚已经收到有关寄生虫之间的关系的数据，她想更多地了解它们之间的关系。
+</p>
+
+<p>
+    我们有在寄生虫之间的用直线连线所组成的数组。
+    每个连接都被表示为一个包含由连字符隔开的两个人的名字的字符串。
+    例如："dr101-mr99" 指的是 <em>dr101</em> 和 <em>mr99</em> 是朋友。
+    你需要写一个函数来确定寄生虫之间更复杂的关系。你将得到两个名字，尝试确定它们是通过共同纽带产生关系。例如：如果两个寄生虫有一个共同的朋友，或者他们的朋友拥有共同的朋友等等。
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="network" src="{{MEDIA}}network.png" alt="network" width="600px"/>
+    <img class="for_editor_only" title="network" src="{{MEDIA}}network.png" alt="network" width="380px"/>
+</p>
+
+<p>
+    让我们看一下例子：<br>
+    <em>scout2</em> 和 <em>scout3</em> 有共同的朋友 <em>scout1</em> 所以他们是有关系的。
+    <em>super</em> 和 <em>scout2</em>  是通过 <em>sscout</em> ，<em>scout4</em> 和 <em>scout1</em>来产生关系的。
+    但是 <em>dr101</em> 和 <em>sscout</em> 是没有关系的。
+
+</p>
+
+<p>
+    <strong>输入: </strong> 三个参数：朋友的信息作为一个字符串元组;第一个名字(字符串形式);第二个名字(字符串形式)。
+</p>
+
+<p>
+    <strong>输出: </strong> 这两个寄生虫是否有关系。(bool)
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>范例:</strong>
+    </p>
+    <pre class="brush: python">
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "scout2", "scout3") == True
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "dr101", "sscout") == False
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>如何使用：</strong>
+    这个概念将帮助你找到纽带网络中没有过于明显的关系，还有如何运作社会网络。
+</p>
+
+<p>
+    <strong>前提:</strong>
+    len(network) &le; 45<br>
+    如果 <em>"name1-name2"</em> 在 <em>网络</em>中，那么 <em>"name2-name1"</em> 就不在 <em>网络</em>中<br>
+    3 &le; len(drone_name) &le; 6<br>
+    <em>first_name</em> 和 <em>second_name</em> 在 <em>网络</em>中。
+</p>
