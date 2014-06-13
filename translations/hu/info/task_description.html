@@ -1,19 +1,20 @@
 <p>
     Zsófia drón beosztottjai – nem valami oktalan, érzéketlen vasdarabok. Sőt, - ők 
     barátkozni is tudnak. Valóban, ők még saját közösségi hálót is létrehoztak, de csak 
-    drónok számára! Zsófia kinyerte e hálóból az összes drónok közötti kapcsolatokat és 
+    drónok számára! Zsófia kinyerte e hálóból az összes drónok közötti kapcsolatot és 
     most részletesebben szeretné tanulmányozni azokat.
 </p>
 
 <p>
     Adott egy tömb, amely a drónok közötti közvetlen kapcsolatokat tartalmazza – azt, 
-    hogy ki kivel barátkozik. Minden egyes kapcsolat karakterláncként van ábrázolva 
-    két kötőjellel összekapcsolt névazonosító formájában. Például: a "dr101-mr99" azt 
-    jelenti, hogy a <em>dr101</em> és az <em>mr99</em> barátkoznak egymással. Azon 
-    kívül, meg van adva két névazonosító. Próbálja meg e feladatban meghatározni, 
-    hogy a drónok kapcsolatban vannak-e egymással más drónokon keresztül, függetlenül 
-    a köztük lévő kapcsolatok melységére. Például, ha két drónnak közös barátja van, 
-    vagy olyan barátaik vannak, akiknek vannak közös barátai, és így tovább.
+    hogy ki kivel barátkozik. Minden egyes kapcsolat két névazonosító kötőjellel 
+    összekapcsolt párosából áll, amelyek karakterláncként vannak ábrázolva. Például: 
+    a "dr101-mr99" azt jelenti, hogy a <em>dr101</em> és az <em>mr99</em> barátkozik 
+    egymással. Azon kívül, meg van adva még két további névazonosító is. Próbálja meg 
+    e feladatban meghatározni, hogy a drónok kapcsolatban vannak-e egymással más drónokon 
+    keresztül, függetlenül a köztük lévő kapcsolatok melységétől. Például, képzelhetjük úgy,
+    hogy két drónnak van egy közös barátja, vagy olyan barátaik vannak, akiknek közös 
+    barátai vannak, és így tovább.
 
 <p style="text-align: center;">
     <img class="for_info_only" title="network" src="{{MEDIA}}network.png" alt="network" width="600px"/>
@@ -30,13 +31,14 @@
 </p>
 
 <p>
-    <strong>Bemeneti adatok: </strong> három argumentum: a barátokról szóló információ 
-    karakterláncokból (str) álló n-es értéksorokból (tuple); az első névazonosító 
-    karakterláncként (str); a második névazonosító karakterláncként (str).
+    <strong>Bemeneti adatok: </strong> három bemeneti argumentum van: a barátokról 
+    szóló információ karakterláncokból (str) álló n-es értéksorokból (tuple); az első 
+    névazonosító karakterláncként (str); a második névazonosító karakterláncként (str).
 </p>
 
 <p>
-    <strong>Kimeneti adatok: </strong> kapcsolatban vannak-e a drónok logikai (bool) értékként.
+    <strong>Kimeneti adatok: </strong> a felelet, hogy kapcsolatban vannak-e a drónok 
+    logikai (bool) értékként (True vagy False).
 </p>
 
 
