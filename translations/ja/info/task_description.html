@@ -1,0 +1,68 @@
+﻿<p>
+	Sophiaのドローンは、魂のない愚かなドローンではありません。彼らは友達を作ったり持つことができます。
+	実際、彼らは既にドローンのための彼ら自身のソーシャルネットワークが動いています!
+	Sophiaはドローン達の間のつながりに関するデータを受け取って、彼らの間の関係について知りたいと思います。
+</p>
+
+<p>
+	我々はドローン達の間の直接のつながりの配列を持っています。
+	各々のつながりはハイフンで区切られた友達の二つの名前をもつ文字列で表現されています。
+	例えば: "dr101-mr99"は<em>dr101</em>と<em>mr99</em>が友達であることを意味しています。
+	あなたはドローン達の間のもっと複雑な関係を決定できるような関数を書かなくてはいけません。
+	さらに、あなたには二つの名前が与えられます。
+	任意の深さの共通のかかわりを介して彼らが関係しているかどうか決定してみましょう。
+	例えば: 二つのドローンが共通の友人をもつかどうか、もしくは友達がさらに共通の友人をもつか等です。
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="network" src="{{MEDIA}}network.png" alt="network" width="600px"/>
+    <img class="for_editor_only" title="network" src="{{MEDIA}}network.png" alt="network" width="380px"/>
+</p>
+
+<p>
+    例を見てみましょう:<br>
+    <em>scout2</em>と<em>scout3</em>は共通の友人<em>scout1</em>を持っているので彼らには関係があります。
+    <em>super</em>と<em>scout2</em>は<em>sscout</em>、<em>scout4</em>、<em>scout1</em>を経由して関係があります。
+    しかし<em>dr101</em>と<em>sscout</em>は関係がありません。
+
+</p>
+
+<p>
+    <strong>入力: </strong> 三つの入力変数: 友達に関する情報、文字列のタプル; 一つ目の名前、文字列;
+    二つ目の名前、文字列
+</p>
+
+<p>
+    <strong>出力: </strong> これらのドローン達に関係があるかどうか、ブール値
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>例:</strong>
+    </p>
+    <pre class="brush: python">
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "scout2", "scout3") == True
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "dr101", "sscout") == False
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+	このコンセプトは結合ネットワークの構築であまり明確でない関係を発見するのに役に立つでしょう。
+	そしてどのようにソーシャルネットワークが働くかについても。
+</p>
+
+<p>
+    <strong>事前条件:</strong>
+    len(network) &le; 45<br>
+    if <em>"name1-name2"</em> in <em>network</em>, then <em>"name2-name1"</em> not in <em>network</em><br>
+    3 &le; len(drone_name) &le; 6<br>
+    <em>first_name</em> and <em>second_name</em> in <em>network</em>.
+</p>
