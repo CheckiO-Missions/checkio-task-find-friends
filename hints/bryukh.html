@@ -1,0 +1,52 @@
+<body data-author="bryukh">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission
+    </div>
+    <div class="answer">
+        You can use any path-finding or union-search algorithm for this mission.
+
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need some help to proceed with the mission
+    </div>
+    <div class="answer">
+        Create two sets (arrays) for future and visited nodes. Start at the first node (second argument), add it to
+        visited. Find all of the neighbors and add them to the "future" set.
+
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I am gone half way through. Need help!
+    </div>
+    <div class="answer">
+        Take any node from the "future" set if it is in "visited", then remove this from "visited" and take the next.
+        Again, find the neighbors.
+
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I am stuck. I need a small hint.
+    </div>
+    <div class="answer">
+        For each node check if this might be the friend we are searching for. To find neighbors you can create a
+        connection dictionary, or just iterate the initial array and use "split('-')".
+
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I tried all I could. Nothing works. SOS
+    </div>
+    <div class="answer">
+        If the "future" set is empty, then return False.
+
+    </div>
+</div>
+
+
+</body>
