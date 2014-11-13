@@ -1,6 +1,6 @@
 //Dont change it
-requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
-    function (ext, $, TableComponent) {
+requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
+    function (ext, $, Raphael, Snap) {
 
         var cur_slide = {};
 
@@ -8,7 +8,9 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
         });
 
         ext.set_process_in(function (this_e, data) {
+            cur_slide = {};
             cur_slide["in"] = data[0];
+            this_e.addAnimationSlide(cur_slide);
         });
 
         ext.set_process_out(function (this_e, data) {
@@ -17,8 +19,6 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 
         ext.set_process_ext(function (this_e, data) {
             cur_slide.ext = data;
-            this_e.addAnimationSlide(cur_slide);
-            cur_slide = {};
         });
 
         ext.set_process_err(function (this_e, data) {
@@ -50,7 +50,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 "," + JSON.stringify(checkioInput[1]) + "," + JSON.stringify(checkioInput[2]) + ')';
 
             var failError = function (dError) {
-                $content.find('.call').html('Fail: ' + checkioInputStr);
+                $content.find('.call').html(checkioInputStr);
                 $content.find('.output').html(dError.replace(/\n/g, ","));
 
                 $content.find('.output').addClass('error');
@@ -70,34 +70,47 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 return false;
             }
 
-            var rightResult = data.ext["answer"];
-            var userResult = data.out;
-            var result = data.ext["result"];
-            var result_addon = data.ext["result_addon"];
+            $content.find('.call').html(checkioInputStr);
+            $content.find('.output').html('Working...');
 
 
-            //if you need additional info from tests (if exists)
-            var explanation = data.ext["explanation"];
+            if (data.ext) {
+                var rightResult = data.ext["answer"];
+                var userResult = data.out;
+                var result = data.ext["result"];
+                var result_addon = data.ext["result_addon"];
 
-            $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
+                //if you need additional info from tests (if exists)
+                var explanation = data.ext["explanation"];
 
-            if (!result) {
-                $content.find('.call').html('Fail: ' + checkioInputStr);
-                $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
-                $content.find('.answer').addClass('error');
-                $content.find('.output').addClass('error');
-                $content.find('.call').addClass('error');
+                if (explanation) {
+                    var canvas = new SocialNetwork();
+                    canvas.draw($content.find(".explanation")[0], explanation, checkioInput[0], checkioInput[1], checkioInput[2]);
+                }
+
+                $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
+                if (!result) {
+                    $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
+                    $content.find('.answer').addClass('error');
+                    $content.find('.output').addClass('error');
+                    $content.find('.call').addClass('error');
+                }
+                else {
+                    $content.find('.answer').remove();
+                }
             }
             else {
-                $content.find('.call').html('Pass: ' + checkioInputStr);
                 $content.find('.answer').remove();
             }
-            //Dont change the code before it
 
-            if (explanation) {
-                var canvas = new SocialNetwork();
-                canvas.draw($content.find(".explanation")[0], explanation, checkioInput[0], checkioInput[1], checkioInput[2]);
-            }
+
+            //Your code here about test explanation animation
+            //$content.find(".explanation").html("Something text for example");
+            //
+            //
+            //
+            //
+            //
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -117,6 +130,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 //                this_e.sendToConsoleCheckiO("something");
 //            });
 //        });
+
 
         function SocialNetwork(options) {
 
@@ -165,7 +179,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var attrName = {"font-family": "Robotic, Verdana, Geneva, sans-serif", "font-size": h};
             var attrLine = {"stroke": colorOrange4, "stroke-width": 3};
 
-            this.draw = function(dom, names, network, first, second) {
+            this.draw = function (dom, names, network, first, second) {
                 paper = Raphael(dom, sizeX, sizeY);
                 var angle = Math.PI * 2 / names.length;
                 for (var i = 0; i < names.length; i++) {
@@ -200,11 +214,6 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             }
 
         }
-
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
 
 
     }
