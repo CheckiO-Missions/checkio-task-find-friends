@@ -1,0 +1,69 @@
+<p>
+   Les drones de Sophia sont malins et vifs d'esprit ; ils peuvent se faire des amis et entretenir leurs amitiés. En réalité, ils
+   sont en train de travailler à la création de leur propre réseau social, réservé aux drones. Sophia a reçu les données sur les 
+   connections entre drones, et elle veut en savoir davantage sur les relations qu'ils entretiennent.
+</p>
+
+<p>
+  Nous disposons d'un tableau de connections directes entre drones. Chaque connection est représentée par une chaîne de 
+  caractères constituée du nom de deux drones amis, séparés d'un tiret.
+  Par exemple : "dr101-mr99" signifie que les drones <em>dr101</em> et <em>mr99</em> sont amis.
+  Il vous faut écrire une fonction qui permette d'établir les connections plus complexes qui existent entre les drones.
+  Deux noms vous sont donnés. L'objectif est de déterminer s'ils sont liés dans le réseau, même indirectement, quel que 
+  soit le nombre d'intermédiaires. Par exemple : si les drones ont des amis communs, ou des amis qui ont des amis comuns, 
+  et ainsi de suite.
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="network" src="{{MEDIA}}network.png" alt="network" width="600px"/>
+    <img class="for_editor_only" title="network" src="{{MEDIA}}network.png" alt="network" width="380px"/>
+</p>
+
+<p>
+  Obeservons les exemples suivants :<br>
+    <em>scout2</em> et <em>scout3</em> ont pour ami commun <em>scout1</em>, donc ils sont liés.
+    <em>super</em> et <em>scout2</em>sont liés par l'intermédiaire de <em>sscout</em>, <em>scout4</em> et <em>scout1</em>.
+    Mais <em>dr101</em> et <em>sscout</em> ne sont pas liés.
+
+</p>
+
+<p>
+    <strong>Input: </strong> Trois arguments: Information sur les amis directs comme tuple (tuple) de 
+    chaînes de caractaères (str);
+    Nom du premier robot comme chaîne de caractères (str);
+    Nom du second robot comme chaîne de caractères(str).
+</p>
+
+<p>
+    <strong>Output: </strong> Si ces robots sont liés dans le réseau, comme booléen (bool).
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+    <pre class="brush: python">
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "scout2", "scout3") == True
+check_connection(
+    ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
+     "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
+    "dr101", "sscout") == False
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Utilisation: </strong>
+   Il s'agit de manipuler et de comprendre le fonctionnement de réseaux tels que les réseaux sociaux.
+</p>
+
+<p>
+    <strong>Préconditions:</strong>
+    len(network) &le; 45<br>
+    если <em>"name1-name2"</em> в <em>network</em>, то <em>"name2-name1"</em> не в <em>network</em><br>
+    3 &le; len(drone_name) &le; 6<br>
+    <em>first_name</em> и <em>second_name</em> всегда в <em>network</em>.
+</p>
